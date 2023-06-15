@@ -36,16 +36,16 @@
 
                             <div class="form-group col-sm-12">
                                 <label for="exampleInputEmail1">Your name <span class="red">*</span></label>
-                                <input type="txt" [(ngModel)]="personName" name="name" required="" class="form-control" id="" placeholder="">
+                                <input type="text" [(ngModel)]="personName" name="personName"  required="" class="form-control" id="" placeholder="">
                             </div>
 
                             <div class="clearfix"></div>
 
                             <div class="form-group col-sm-12">
-                                <label for="radiobutton">Ownership Type</label> &nbsp;
-                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Owner" checked=""> Owner
-                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Agent"> Agent
-                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Builder"> Builder
+                                <label for="radiobutton">Ownership Type<span class="red">*</span></label> &nbsp;
+                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Owner" [checked]="true" /> Owner
+                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Agent" /> Agent
+                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Builder" /> Builder
                             </div>
 
 
@@ -193,7 +193,7 @@
                             </script>
 
                             <div class="form-group col-sm-12">
-                                <label for="exp_price">Expected Price (Rs)<span class="vmax3">*</span></label>
+                                <label for="exp_price">Expected Price (Rs)<span class="red">*</span></label>
                                 <input id="price" [(ngModel)]="price" name="price" value="" class="form-control" title="price" type="text">
                             </div>
 
@@ -203,17 +203,24 @@
                                     type="text">
                             </div>
 
+
+                           <div class="clearfix"></div>
+                            <div class="form-group col-sm-12">
+                                <label for="title">Dimensions of Property</label>
+                                <input id="title" [(ngModel)]="dimensions" name="dimensions" value="" class="form-control" title="title" type="text">
+                            </div> 
+
                             <div class="clearfix"></div>
 
 
                             <div class="form-group col-sm-12">
-                                <label for="title">Title of property</label>
+                                <label for="title">Title of property<span class="red">*</span></label>
                                 <input id="title" [(ngModel)]="propertytitle" name="title" value="" class="form-control" title="title" type="text">
                             </div>
 
 
                             <div class="form-group col-sm-12">
-                                <label for="message">Description of property <span class="vmax3">*</span></label>
+                                <label for="message">Description of property <span class="red">*</span></label>
                                 <textarea name="message" [(ngModel)]="propertyDescription" class="input-textarea form-control" rows="5" cols="1"
                                     id="message" tabindex="4" title="message"></textarea>
                             </div>
@@ -256,7 +263,7 @@
                                 <p>Only .jpg,. gif images under 250Kb are accepted for upload</p>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label for="file">Upload Photo</label>
+                                <label for="file">Upload Photo<span class="red">*</span></label>
                                 <input type="file" [(ngModel)]="imageFileName" name="file" (change)="imageUpload($event)">
                             </div>
 
@@ -264,11 +271,10 @@
 
                             <div class="form-group col-sm-12">
                                 <div class="checkbox">
-                                    <label>
-                                        <!-- <input name="CHKBOX_1" type="checkbox" id="agree" value="1"> -->
+                                    <label>                                        
                                         <input type="checkbox"  onchange="document.getElementById('signin_submit').disabled = !this.checked;" />
                                         Due to background verification, Posted property will be displayed in main page
-                                        within 3 days. I accept terms and conditions of <a
+                                        within 24 hours. I accept terms and conditions of <a
                                             href="terms">www.swatirealestate.com</a></label>
                                 </div>
                             </div>

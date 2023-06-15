@@ -48,6 +48,7 @@ export class PostpropertyComponent implements OnInit{
   propertyDescription: any;
   mapURL: any;
   imageFileName: any;
+  dimensions:any;
 
   constructor(private typeService: TypeService,private http:HttpClient ) { }
 
@@ -94,7 +95,8 @@ export class PostpropertyComponent implements OnInit{
       propertytitle:this.propertytitle,
       propertyDescription:this.propertyDescription,
       mapURL:this.mapURL,
-      imageFileName:this.file.name
+      imageFileName:this.file.name,
+      dimensions:this.dimensions,
 
     };
     console.log("value : "+ val);
