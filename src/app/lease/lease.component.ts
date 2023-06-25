@@ -51,7 +51,7 @@ export class LeaseComponent implements OnInit{
     
     this.http.get<any>(environment.API_URL+'Properties')
     .subscribe(data => { 
-      this.propertiesdata = data.filter(a=>a.propertySubtype.toLowerCase()=== this.selectedSubType.toLowerCase() && a.purpose.toLowerCase() === "lease");      
+      this.propertiesdata = data.filter(a=>a.propertySubtype.toLowerCase()=== this.selectedSubType.toLowerCase() && a.purpose.toLowerCase() === "lease" && a.isActive == true && a.isApproved == true);      
     });    
     
   }  

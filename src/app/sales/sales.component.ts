@@ -50,7 +50,7 @@ export class SalesComponent  implements OnInit {
     
     this.http.get<any>(environment.API_URL+'Properties')
     .subscribe(data => { 
-      this.propertiesdata = data.filter(a=>a.propertySubtype.toLowerCase()=== this.selectedSubType.toLowerCase() && a.purpose.toLowerCase() === "sell");
+      this.propertiesdata = data.filter(a=>a.propertySubtype.toLowerCase()=== this.selectedSubType.toLowerCase() && a.purpose.toLowerCase() === "sell" && a.isActive == true && a.isApproved == true);
     });    
     
   }  
