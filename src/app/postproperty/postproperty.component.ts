@@ -92,6 +92,96 @@ export class PostpropertyComponent implements OnInit {
       });      
       return false;
     }
+    else if(this.contactNumber == undefined || this.contactNumber.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "contact Number is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
+    else if(this.purpose == undefined || this.purpose.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "Purpose is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
+    else if(this.location == undefined || this.location.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "location is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
+    else if(this.propertyType == undefined || this.propertyType.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "Category is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
+    else if(this.propertySubtype == undefined || this.propertySubtype.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "Property Type is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
+    else if(this.price == undefined || this.price.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "Price is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
+    else if(this.dimensions == undefined || this.dimensions.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "Property Dimension is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
+    else if(this.propertytitle == undefined || this.propertytitle.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "Property title is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
+    else if(this.mapURL == undefined || this.mapURL.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "Google map url is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
+    else if(this.imageFileName == undefined || this.imageFileName.length==0)
+    {
+      Swal.fire({
+        title: 'Warning!',
+        text: "Property Picture is Mandatory",
+        icon: 'warning'        
+      });      
+      return false;
+    }
     return true;
   }
 
@@ -130,7 +220,7 @@ export class PostpropertyComponent implements OnInit {
       this.http.post(environment.API_URL + "Properties", val)
         .subscribe(res => { Swal.fire({
           title: 'Swati Real Estate',
-          text: "Your input added successfully!!!",
+          text: "Thank you for contacts us, your property is posted successfully.",
           icon: 'success'        
         });      });
     }

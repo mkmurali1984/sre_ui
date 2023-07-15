@@ -23,6 +23,7 @@ export class HomecontentComponent {
   getPropertiesData() {
     this.http.get<any>(environment.API_URL+'Properties')
     .subscribe(data => { 
+      console.log(data);
       this.propertiesdata = data.filter(a=>a.isActive == true && a.isApproved == true);
     });
   }
