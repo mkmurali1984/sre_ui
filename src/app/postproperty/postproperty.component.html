@@ -29,23 +29,23 @@
 
                     <div id="description">
                         <br>
-                        <form #form="ngForm"  method="post" enctype="multipart/form-data" 
+                        <form #form="ngForm" method="post" enctype="multipart/form-data" 
                             (ngSubmit)="submitForm()">
 
                             <h3 class="widgettitle mrgin_t_25">Personal Details</h3>
 
                             <div class="form-group col-sm-12">
                                 <label for="exampleInputEmail1">Your name <span class="red">*</span></label>
-                                <input type="text" [(ngModel)]="personName" name="personName"  required="" class="form-control" id="" placeholder="">
+                                <input type="text" [(ngModel)]="personName" name="personName" required="" class="form-control" id="" placeholder="">
                             </div>
 
                             <div class="clearfix"></div>
 
                             <div class="form-group col-sm-12">
-                                <label for="radiobutton">Ownership Type<span class="red">*</span></label> &nbsp;
-                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Owner" [checked]="true" /> Owner
-                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Agent" /> Agent
-                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Builder" /> Builder
+                                <label for="radiobutton">Ownership Type <span class="red">*</span></label> &nbsp;
+                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Owner" checked=""> Owner
+                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Agent"> Agent
+                                <input [(ngModel)]="ownershipType" name="radiobutton" type="radio" value="Builder"> Builder
                             </div>
 
 
@@ -193,7 +193,7 @@
                             </script>
 
                             <div class="form-group col-sm-12">
-                                <label for="exp_price">Expected Price (Rs)<span class="red">*</span></label>
+                                <label for="exp_price">Expected Price<span class="red">*</span>(Rs, Price should be numbers only and no special characters allowed)</label>
                                 <input id="price" [(ngModel)]="price" name="price" value="" class="form-control" title="price" type="text">
                             </div>
 
@@ -203,26 +203,23 @@
                                     type="text">
                             </div>
 
-
                            <div class="clearfix"></div>
                             <div class="form-group col-sm-12">
                                 <label for="title">Dimensions of Property</label>
                                 <input id="title" [(ngModel)]="dimensions" name="dimensions" value="" class="form-control" title="title" type="text">
                             </div> 
 
-                            <div class="clearfix"></div>
-
 
                             <div class="form-group col-sm-12">
-                                <label for="title">Title of property<span class="red">*</span></label>
+                                <label for="title">Title of property <span class="red">*</span></label>
                                 <input id="title" [(ngModel)]="propertytitle" name="title" value="" class="form-control" title="title" type="text">
                             </div>
 
 
                             <div class="form-group col-sm-12">
-                                <label for="message">Description of property <span class="red">*</span></label>
+                                <label for="message">Description of property</label>
                                 <textarea name="message" [(ngModel)]="propertyDescription" class="input-textarea form-control" rows="5" cols="1"
-                                    id="message" tabindex="4" title="message"></textarea>
+                                    id="message" title="message"></textarea>
                             </div>
                             <div class="clearfix"></div>
                             <script type="text/javascript"
@@ -235,7 +232,7 @@
 
                             <div class="clearfix"></div>
                             <div class=" col-sm-12">
-                                <label class="">Google Map Link:</label>
+                                <label class="">Google Map Link: </label>
                                 <input type="text" [(ngModel)]="mapURL" class="form-control" name="latitude" id="us2-lat">
                             </div>
 
@@ -263,7 +260,7 @@
                                 <p>Only .jpg,. gif images under 250Kb are accepted for upload</p>
                             </div>
                             <div class="form-group col-sm-6">
-                                <label for="file">Upload Photo<span class="red">*</span></label>
+                                <label for="file">Upload Photo <span class="red">*</span></label>
                                 <input type="file" [(ngModel)]="imageFileName" name="file" (change)="imageUpload($event)">
                             </div>
 
@@ -271,7 +268,8 @@
 
                             <div class="form-group col-sm-12">
                                 <div class="checkbox">
-                                    <label>                                        
+                                    <label>
+                                        <!-- <input name="CHKBOX_1" type="checkbox" id="agree" value="1"> -->
                                         <input type="checkbox"  onchange="document.getElementById('signin_submit').disabled = !this.checked;" />
                                         Due to background verification, Posted property will be displayed in main page
                                         within 24 hours. I accept terms and conditions of <a
