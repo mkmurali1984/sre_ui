@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { propertytype } from '../class/propertytype';
 import { propertysubtype } from '../class/propertysubtype';
 import { TypeService } from '../type.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 
 
@@ -48,10 +48,13 @@ export class LeaseComponent implements OnInit{
     this.choosenpropertytypeid = this.selectedPropertyType.id-1;
     this.choosenpropertytypename = this.propertytypes[this.choosenpropertytypeid].name;       
    
+    let httpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.append('ApiKey',environment.API_KEY);
+    let options = {headers : httpHeaders};
     
-    this.http.get<any>(environment.API_URL+'Properties')
+    this.http.get<any>(environment.API_URL+'Properties' ,options)
     .subscribe(data => { 
-      this.propertiesdata = data.filter(a=>a.propertySubtype.toLowerCase()=== this.selectedSubType.toLowerCase() && a.purpose.toLowerCase() === "lease" && a.isActive == true && a.isApproved == true);      
+      this.propertiesdata = data.filter(a=>a.propertySubtype === this.selectedSubType && a.purpose.toLowerCase() === "lease" && a.isActive == true && a.isApproved == true);      
     });    
     
   }  

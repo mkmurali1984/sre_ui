@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { propertytype } from '../class/propertytype';
 import { propertysubtype } from '../class/propertysubtype';
 import { TypeService } from '../type.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { postproperty } from '../class/postproerty';
@@ -67,8 +67,12 @@ export class PostpropertyComponent implements OnInit {
     const formData: FormData = new FormData();
     formData.append('file', this.file, this.file.name);
 
+    let httpHeaders = new HttpHeaders();
+      httpHeaders = httpHeaders.append('ApiKey',environment.API_KEY);
+      let options = {headers : httpHeaders};
 
-    this.http.post(environment.API_URL + 'Properties/SaveFile', formData)
+
+    this.http.post(environment.API_URL + 'Properties/SaveFile', formData,options)
       .subscribe((data: any) => {
         this.PhotoFileName = data.toString();
       });
@@ -119,24 +123,7 @@ export class PostpropertyComponent implements OnInit {
       });      
       return false;
     }
-    else if(this.propertyType == undefined || this.propertyType.length==0)
-    {
-      Swal.fire({
-        title: 'Warning!',
-        text: "Category is Mandatory",
-        icon: 'warning'        
-      });      
-      return false;
-    }
-    else if(this.propertySubtype == undefined || this.propertySubtype.length==0)
-    {
-      Swal.fire({
-        title: 'Warning!',
-        text: "Property Type is Mandatory",
-        icon: 'warning'        
-      });      
-      return false;
-    }
+   
     else if(this.price == undefined || this.price.length==0)
     {
       Swal.fire({
@@ -164,15 +151,7 @@ export class PostpropertyComponent implements OnInit {
       });      
       return false;
     }
-    else if(this.mapURL == undefined || this.mapURL.length==0)
-    {
-      Swal.fire({
-        title: 'Warning!',
-        text: "Google map url is Mandatory",
-        icon: 'warning'        
-      });      
-      return false;
-    }
+    
     else if(this.imageFileName == undefined || this.imageFileName.length==0)
     {
       Swal.fire({
@@ -213,16 +192,18 @@ export class PostpropertyComponent implements OnInit {
         dimensions: this.dimensions,
 
       };
+     
+      let httpHeaders = new HttpHeaders();
+      httpHeaders = httpHeaders.append('ApiKey',environment.API_KEY);
+      let options = {headers : httpHeaders};
 
-      console.log("value : " + val);
-      console.log("Image Name" + val.imageFileName);
-      console.log("post property button clicked");
-      this.http.post(environment.API_URL + "Properties", val)
+      this.http.post(environment.API_URL + "Properties", val, options)
         .subscribe(res => { Swal.fire({
-          title: 'Swati Real Estate',
-          text: "Thank you for contacts us, your property is posted successfully.",
+          title: 'Thank you for contacts us, your property is posted successfully.',
+          text: 'Due to background verification, Posted property will be displayed in main page within 24 hours.',
           icon: 'success'        
-        });      });
+        });      
+      });
     }
   }
 }

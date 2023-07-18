@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { environment } from 'src/environments/environment.development';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-homecontent',
@@ -21,9 +21,11 @@ export class HomecontentComponent {
   }
 
   getPropertiesData() {
-    this.http.get<any>(environment.API_URL+'Properties')
-    .subscribe(data => { 
-      console.log(data);
+    let httpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.append('ApiKey',environment.API_KEY);
+    let options = {headers : httpHeaders};
+    this.http.get<any>(environment.API_URL+'Properties', options)
+    .subscribe(data => {       
       this.propertiesdata = data.filter(a=>a.isActive == true && a.isApproved == true);
     });
   }
