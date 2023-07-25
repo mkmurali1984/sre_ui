@@ -32,122 +32,37 @@
   <script type='text/javascript' src='./assets/js/newslatter.js'></script>
   <script type='text/javascript' src='./assets/js/prettyphoto.js'></script>
   <script type='text/javascript' src='./assets/js/owl.carousel.min.js'></script>
-  <script type='text/javascript' src='./assets/js/jquery.flexslider.js'></script>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.5.0/jquery.flexslider.min.js'></script>
   <script type='text/javascript' src='./assets/js/helper-plugins.js'></script>
   <script type='text/javascript' src='./assets/js/bootstrap.js'></script>
+
   <script type="text/javascript">
-    jQuery(document).ready(function () {
-      searchmodule();
-      jQuery(".property-featured-image").each(function () {
-        PIheight = jQuery(this).find("img").outerHeight();
-        jQuery(this).prepend("<div class='overlay' style='line-height:" + PIheight + "px'></div>");
-      });
-      jQuery('.owl-carousel').each(function () {
-        var carouselInstance = jQuery(this);
-        carouselColumns = carouselInstance.attr("data-columns") ? carouselInstance.attr("data-columns") : "1",
-          carouselitemsDesktop = carouselInstance.attr("data-items-desktop") ? carouselInstance.attr("data-items-desktop") : "4",
-          carouselitemsDesktopSmall = carouselInstance.attr("data-items-desktop-small") ? carouselInstance.attr("data-items-desktop-small") : "3",
-          carouselitemsTablet = carouselInstance.attr("data-items-tablet") ? carouselInstance.attr("data-items-tablet") : "2",
-          carouselitemsMobile = carouselInstance.attr("data-items-mobile") ? carouselInstance.attr("data-items-mobile") : "1",
-          carouselAutoplay = carouselInstance.attr("data-autoplay") == 'yes' ? true : false,
-          carouselPagination = carouselInstance.attr("data-pagination") == 'yes' ? true : false,
-          carouselArrows = carouselInstance.attr("data-arrows") == 'yes' ? true : false,
-          carouselSingle = carouselInstance.attr("data-single-item") == 'yes' ? true : false
-        carouselStyle = carouselInstance.attr("data-style") ? carouselInstance.attr("data-style") : "fade",
-
-          carouselInstance.owlCarousel({
-            items: carouselColumns,
-            autoPlay: carouselAutoplay,
-            navigation: carouselArrows,
-            pagination: carouselPagination,
-            itemsDesktop: [1199, carouselitemsDesktop],
-            itemsDesktopSmall: [979, carouselitemsDesktopSmall],
-            itemsTablet: [768, carouselitemsTablet],
-            itemsMobile: [479, carouselitemsMobile],
-            singleItem: carouselSingle,
-            navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
-            stopOnHover: true,
-            lazyLoad: true,
-            transitionStyle: carouselStyle
-          });
-      });
-      jQuery('.flexslider').each(function () {
-        var sliderInstance = jQuery(this);
-        sliderAutoplay = sliderInstance.attr("data-autoplay") == 'yes' ? true : false,
-          sliderPagination = sliderInstance.attr("data-pagination") == 'yes' ? true : false,
-          sliderArrows = sliderInstance.attr("data-arrows") == 'yes' ? true : false,
-          sliderDirection = sliderInstance.attr("data-direction") ? sliderInstance.attr("data-direction") : "horizontal",
-          sliderStyle = sliderInstance.attr("data-style") ? sliderInstance.attr("data-style") : "fade",
-          sliderSpeed = sliderInstance.attr("data-speed") ? sliderInstance.attr("data-speed") : "5000",
-          sliderPause = sliderInstance.attr("data-pause") == 'yes' ? true : false,
-
-          sliderInstance.flexslider({
-            animation: sliderStyle,
-            easing: "swing",
-            direction: sliderDirection,
-            slideshow: sliderAutoplay,
-            slideshowSpeed: sliderSpeed,
-            animationSpeed: 600,
-            initDelay: 0,
-            randomize: false,
-            pauseOnHover: sliderPause,
-            controlNav: sliderPagination,
-            directionNav: sliderArrows,
-            prevText: "",
-            nextText: "",
-            start: function () { jQuery(".flex-caption").fadeIn(); }
-          });
-      });
-      function searchmodule() {
-        jQuery('.sf-menu').superfish({
-          delay: 200,
-          animation: { opacity: 'show', height: 'show' },
-          speed: 'fast',
-          cssArrows: false,
-          disableHI: true
-        });
-        jQuery(".navigation > ul > li:has(ul)").find("a:first").append(" <i class='fa fa-angle-down'></i>");
-        jQuery(".navigation > ul > li > ul > li:has(ul)").find("a:first").append(" <i class='fa fa-caret-right'></i>");
-        jQuery(".menu-toggle").click(function () {
-          jQuery(".main-menu-wrapper").slideToggle();
-          return false;
-        });
-        jQuery(window).resize(function () {
-          if (jQuery(".menu-toggle").hasClass("opened")) {
-            jQuery(".main-menu-wrapper").css("display", "block");
-          } else {
-            jQuery(".menu-toggle").css("display", "none");
-          }
-        });
-
-        jQuery('#ads-trigger').click(function () {
-          if (jQuery(this).hasClass('advanced')) {
-            jQuery(this).removeClass('advanced');
-            jQuery(".site-search-module").animate({
-              'bottom': '-' + SBOFF
-            });
-            jQuery(this).php('<i class="fa fa-plus"></i> Advanced');
-            jQuery('.slider-mask').fadeOut(500);
-          } else {
-
-            jQuery(this).addClass('advanced');
-            jQuery(".site-search-module").animate({
-              'bottom': STOFF
-            });
-            jQuery(this).php('<i class="fa fa-minus"></i> Basic');
-            jQuery('.slider-mask').fadeIn(500);
-          }
-          return false;
-        });
-      }
-
+    $(document).ready(function() {
+      $('.flex-next').html('<i class="fa fa-chevron-right" aria-hidden="true"></i>');
+      $('.flex-prev').html('<i class="fa fa-chevron-left" aria-hidden="true"></i>')
     });
-  </script>
-
-
-
-
-  <script>
+    $('.slide-image').each(function() {
+      var bg = $(this).data('bg');
+      var pos = $(this).data('flex-start');
+      $(this).css({
+        "background-image" : "url("+bg+")",
+        "transform-origin": pos,
+      })
+    });
+    $('.flex-slider').flexslider({
+      slideshow: true,
+      slideshowSpeed: 5000,
+      animationSpeed: 1000,
+      controlNav: false,
+      // autoplay
+      pauseOnAction: true,
+      after: function(slider) {
+        if (!slider.playing) {
+          slider.play();
+        }
+      }
+      //autoplay
+    });
 
 
     $(document).ready(function () {

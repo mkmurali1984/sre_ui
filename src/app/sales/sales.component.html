@@ -1,64 +1,54 @@
 <div class="main" role="main">
-  <div id="content" class="content full">
-    <div class="container add_ur_proprty hidden-lg hidden-md">
-      <div class="post_btn">
-        <a href="post-property"><img src="images/post-button1.png" alt="apartments" class="img-responsive"></a>
+  <div id="content" class="full">
+    <div class="inner_banner_main">
+      <div class="container">
+          <h2>Sell</h2>
+      </div>
+  </div>
+  <div class="container">
+    
+    <h3>Filter By</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <label style="display:inline">Property Type: </label>
+        <select [(ngModel)]="selectedPropertyType.id" (change)="onSelect($any($event.target).value)">
+          <option *ngFor="let propertytype of propertytypes" value={{propertytype.id}}>{{propertytype.name}}
+          </option>
+        </select>
+        <i class="arrow down"></i>
+      </div>
+
+      <div class="col-md-4">
+        <label style="display:inline">Property Subtype: </label>
+        <select style="display:inline" [(ngModel)]="selectedSubType" (change)="onSubTypeChange()">
+          <option *ngFor="let propertysubtype of propertysubtypes" value={{propertysubtype.name}}>
+            {{propertysubtype.name}}</option>
+        </select>
+        <i class="arrow down"></i>
       </div>
     </div>
+    <div class="row">
+      <div class="owl-item">
+        <ul>
 
+          <li *ngFor="let prop of propertiesdata" class="owl-carousel owl-item property-block"><a
+              class="property-featured-image"><img [src]="ImagePath+prop.imageFileName" class="imgbox"
+                alt="Image not found" /></a>
+            <div class="property-info">
+              <a href="#">{{prop.type}}</a>
+              <span class="location">Location: {{prop.location}}</span>
+              <span class="location">Property Type: {{prop.propertyType}}</span>
+              <span class="location">Dimension: {{prop.dimensions}}</span>
 
-    <div id="featured-properties">
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="block-heading">
-              <h4><span class="heading-icon"><i class="fa fa-building"></i></span>Sell</h4>
+              <div class="price"><span><strong>RS</strong><span>{{prop.price |
+                    number}}</span></span>
+              </div>
             </div>
-          </div>
-        </div>
-        <h3>Filter By</h3>
-        <div class="row">
-          <div class="col-md-4">
-            <label style="display:inline">Property Type: </label>
-            <select [(ngModel)]="selectedPropertyType.id" (change)="onSelect($any($event.target).value)">
-              <option *ngFor="let propertytype of propertytypes" value={{propertytype.id}}>{{propertytype.name}}
-              </option>
-            </select>
-            <i class="arrow down"></i>
-          </div>
-
-          <div class="col-md-4">
-            <label style="display:inline">Property Subtype: </label>
-            <select style="display:inline" [(ngModel)]="selectedSubType" (change)="onSubTypeChange()">
-              <option *ngFor="let propertysubtype of propertysubtypes" value={{propertysubtype.name}}>
-                {{propertysubtype.name}}</option>
-            </select>
-            <i class="arrow down"></i>
-          </div>
-        </div>
-        <div class="row">
-          <div class="owl-item">
-            <ul>
-
-              <li *ngFor="let prop of propertiesdata" class="owl-carousel owl-item property-block"><a
-                  class="property-featured-image"><img [src]="ImagePath+prop.imageFileName" class="imgbox"
-                    alt="Image not found" /></a>
-                <div class="property-info">
-                  <a href="#">{{prop.type}}</a>
-                  <span class="location">Location: {{prop.location}}</span>
-                  <span class="location">Property Type: {{prop.propertyType}}</span>
-                  <span class="location">Dimension: {{prop.dimensions}}</span>
-
-                  <div class="price"><span><strong>RS</strong><span>{{prop.price |
-                        number}}</span></span>
-                  </div>
-                </div>
 
 
-              </li>
+          </li>
 
-              <!-- <li *ngFor="let prop of propertiesdata" class="owl-carousel owl-item property-block"><a
+          <!-- <li *ngFor="let prop of propertiesdata" class="owl-carousel owl-item property-block"><a
                   class="property-featured-image"><img [src]="ImagePath+prop.imageFileName"
                     class="attachment-600-400-size wp-post-image" width="100" height="150"
                     alt="Image not found" /><span class="images-count"><i
@@ -78,15 +68,14 @@
 
 
 
-            </ul>
-          </div>
-        </div>
+        </ul>
       </div>
     </div>
-
-    <div class="clearfix"></div>
-
-
-
   </div>
+
+
+  <div class="clearfix"></div>
+
+
+
 </div>

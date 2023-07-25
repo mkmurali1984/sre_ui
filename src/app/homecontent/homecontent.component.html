@@ -1,53 +1,31 @@
+<app-banner></app-banner>
 <div class="main" role="main">
-    <div id="content" class="content full">
-        <div class="container add_ur_proprty hidden-lg hidden-md">
-            <div class="post_btn">
-                <a href="post-property"><img src="images/post-button1.png" alt="apartments" class="img-responsive"></a>
-            </div>
-        </div>
-
-        <div id="featured-properties">
-
+    <div id="content" class="full">
+        <div class="inner_banner_main">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="block-heading">
-                            <h4><span class="heading-icon"><i class="fa fa-building"></i></span>Hot Properties</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="owl-item">
-                        <ul>
-
-                            <li *ngFor="let prop of propertiesdata" class="owl-carousel owl-item property-block"><a
-                                    class="property-featured-image"><img [src]="ImagePath+prop.imageFileName"
-                                        class="imgbox" alt="Image not found" /></a>
-                                <div class="property-info">
-                                    <a href="#">{{prop.type}}</a>
-                                    <span class="location">Location: {{prop.location}}</span>
-                                    <span class="location">Property Type: {{prop.propertyType}}</span>
-                                    <span class="location">Dimension: {{prop.dimensions}}</span>
-                                    
-                                    <div class="price"><span><strong>RS</strong><span>{{prop.price |
-                                                number}}</span></span>
-                                    </div>
-                                </div>
-
-
-                            </li>
-
-
-
-                        </ul>
-                    </div>
-                </div>
+                <h2>Hot Properties</h2>
             </div>
         </div>
-
-        <div class="clearfix"></div>
-
-
-
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="owl-item">
+                <ul>
+                    <li *ngFor="let prop of propertiesdata" class="owl-carousel owl-item property-block"><a
+                            class="property-featured-image"><img [src]="ImagePath+prop.imageFileName" class="imgbox"
+                                alt="Image not found" /></a>
+                        <div class="property-info">
+                            <a href="#">{{prop.type}}</a>
+                            <span class="location">Location: {{prop.location}}</span>
+                            <span class="location">Property Type: {{prop.propertyType}}</span>
+                            <span class="location">Dimension: {{prop.dimensions}}</span>
+                            <div class="price"><span><strong>RS</strong><span>{{prop.price}}</span></span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
 </div>
