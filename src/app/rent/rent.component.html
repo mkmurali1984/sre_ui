@@ -19,11 +19,14 @@
       </div>
       <div class="col-md-4">
         <label style="display:inline">Property Subtype: </label>
-        <select style="display:inline" [(ngModel)]="selectedSubType" (change)="onSubTypeChange()">
+        <select style="display:inline" [(ngModel)]="selectedSubType">
           <option *ngFor="let propertysubtype of propertysubtypes" value={{propertysubtype.name}}>
             {{propertysubtype.name}}</option>
         </select>
         <i class="arrow down"></i>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-success" (click)="onSubTypeChange()"> Search </button>
       </div>
     </div>
     <div class="row">

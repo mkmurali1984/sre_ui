@@ -202,6 +202,8 @@ export class PostpropertyComponent implements OnInit {
           title: 'Thank you for contacts us, your property is posted successfully.',
           text: 'Due to background verification, Posted property will be displayed in main page within 24 hours.',
           icon: 'success'        
+        }).then(function(){
+          window.location.href="http://swatirealestates.co.in"
         });      
       });
     }
