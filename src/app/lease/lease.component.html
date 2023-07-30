@@ -30,23 +30,22 @@
         </div>
       </div>
       <div class="row">
-        <div class="owl-item">
-          <ul>
-
+        <div class="owl-item">          
+          <ul>            
             <li *ngFor="let prop of propertiesdata" class="owl-carousel owl-item property-block"><a
                 class="property-featured-image"><img [src]="ImagePath+prop.imageFileName" class="imgbox"
                   alt="Image not found" /></a>
               <div class="property-info">
                 <a href="#">{{prop.type}}</a>
                 <span class="location">Location: {{prop.location}}</span>
-                <span class="location">Property Type: {{prop.propertyType}}</span>
+                <span class="location">Category: {{prop.propertySubtype}}</span>
                 <span class="location">Dimension: {{prop.dimensions}}</span>
 
                 <div class="price"><span><strong>RS</strong><span>{{prop.price |
                       number}}</span></span>
                 </div>
-              </div>
-            </li>
+              </div>              
+            </li>            
           </ul>
         </div>
       </div>

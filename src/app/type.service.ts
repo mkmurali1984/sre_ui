@@ -7,13 +7,13 @@ import { propertysubtype } from './class/propertysubtype';
 })
 export class TypeService {
 
-  constructor() { }
+  constructor() { /* TODO document why this constructor is empty */  }
 
   getpropertytypes() {
     return [
       new propertytype(1, 'Residential' ),
       new propertytype(2, 'Commercial' ),     
-     new propertytype(3, 'Agriculture Land' ),
+      new propertytype(3, 'Agriculture Land' ),
     ];
   }
 
@@ -26,8 +26,8 @@ export class TypeService {
       new propertysubtype(5, 1, 'House' ),
       new propertysubtype(6, 1, 'Villa'),
       new propertysubtype(7, 1, 'Apartment' ),
-      new propertysubtype(8, 1, 'Plat' ),
-      new propertysubtype(9, 3, 'Agriculture Land' )
+      new propertysubtype(8, 1, 'Plot' ),
+      new propertysubtype(9, 3, 'Farm/Agriculture Land' )
      ];
    }
 }

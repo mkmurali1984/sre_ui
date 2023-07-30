@@ -4,7 +4,7 @@ import { propertysubtype } from '../class/propertysubtype';
 import { TypeService } from '../type.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-lease',
@@ -54,7 +54,15 @@ export class LeaseComponent implements OnInit{
     
     this.http.get<any>(environment.API_URL+'Properties' ,options)
     .subscribe(data => { 
-      this.propertiesdata = data.filter(a=>a.propertySubtype === this.selectedSubType && a.purpose.toLowerCase() === "lease" && a.isActive == true && a.isApproved == true);      
+      this.propertiesdata = data.filter(a=>a.propertySubtype === this.selectedSubType && a.purpose.toLowerCase() === "lease" && a.isActive == true && a.isApproved == true);            
+      if(this.propertiesdata.length ==0)
+      {
+        Swal.fire({
+          title: 'Swati Real Estates',
+          text: "Thank you for contacting us. As of now it is not available as per  your expected properties, Keep on  searching …we will update you expected properties soon.",
+          icon: 'info'        
+        });      
+      }
     });    
     
   }  

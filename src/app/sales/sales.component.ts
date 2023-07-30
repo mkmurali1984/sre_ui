@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { propertytype } from '../class/propertytype';
 import { propertysubtype } from '../class/propertysubtype';
 import { TypeService } from '../type.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sales',
@@ -12,6 +13,8 @@ import { environment } from 'src/environments/environment.development';
 })
 export class SalesComponent  implements OnInit {
 
+  @Input() isneeded = false;
+  
   selectedPropertyType: propertytype = new propertytype(1,'');
   propertytypes: propertytype[] =[];
   propertysubtypes: propertysubtype[] = [];
@@ -55,6 +58,14 @@ export class SalesComponent  implements OnInit {
     this.http.get<any>(environment.API_URL+'Properties',options)
     .subscribe(data => { 
       this.propertiesdata = data.filter(a=>a.propertySubtype === this.selectedSubType && a.purpose.toLowerCase() === "sell" && a.isActive == true && a.isApproved == true);
+      if(this.propertiesdata.length ==0)
+      {
+        Swal.fire({
+          title: 'Swati Real Estates',
+          text: "Thank you for contacting us. As of now it is not available as per  your expected properties, Keep on  searching …we will update you expected properties soon.",
+          icon: 'info'        
+        });      
+      }
     });    
     
   }  

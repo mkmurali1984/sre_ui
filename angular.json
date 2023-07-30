@@ -31,7 +31,7 @@
               "src/styles.css",
               "node_modules/sweetalert2/src/sweetalert2.scss"          
             ],
-            "scripts": ["src/assets/js/jquery.js","src/assets/js/jquery.flexslider.js"]
+            "scripts": ["src/assets/js/jquery.js","src/assets/js/owl.carousel.min.js","src/assets/js/jquery.flexslider.js"]
           },
           "configurations": {
             "production": {
@@ -102,7 +102,7 @@
               "src/styles.css",
               "node_modules/sweetalert2/src/sweetalert2.scss"
             ],
-            "scripts": []
+            "scripts": ["src/assets/js/jquery.js","src/assets/js/owl.carousel.min.js","src/assets/js/jquery.flexslider.js"]
           }
         }
       }

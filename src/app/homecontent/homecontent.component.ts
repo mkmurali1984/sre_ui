@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-homecontent',
   templateUrl: './homecontent.component.html',
@@ -10,8 +11,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 
 export class HomecontentComponent {
-  
-  constructor(private http:HttpClient ){}
+
+  constructor(private http:HttpClient ){
+   
+  }
 
   propertiesdata:any=[];
   ImagePath= environment.PHOTO_URL;
