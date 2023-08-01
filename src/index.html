@@ -1,150 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swati Real Estate Consultancy</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="./assets/css/client.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link
+      href="./assets/css/prettyPhoto.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="./assets/css/owl.carousel.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="./assets/css/owl.theme.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/css/color1.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="utf-8">
-  <title>Swati Real Estate Consultancy</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet"
-    type="text/css">
-  <link href="./assets/css/client.css" rel="stylesheet" type="text/css">
-  <link href="./assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-  <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
-  <link href="./assets/css/prettyPhoto.css" rel="stylesheet" type="text/css">
-  <link href="./assets/css/owl.carousel.css" rel="stylesheet" type="text/css">
-  <link href="./assets/css/owl.theme.css" rel="stylesheet" type="text/css">
-  <link href="./assets/css/color1.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+    <script type="text/javascript" src="./assets/js/jquery.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap.js"></script>
+    <script
+      type="text/javascript"
+      src="./assets/js/jquery-migrate.min.js"
+    ></script>
+    <script type="text/javascript" src="./assets/js/modernizr.js"></script>
+  </head>
 
-  <script type='text/javascript' src='./assets/js/jquery.js'></script>
-  <script type='text/javascript' src='./assets/js/bootstrap.js'></script>
-  <script type='text/javascript' src='./assets/js/jquery-migrate.min.js'></script>
-  <script type='text/javascript' src='./assets/js/modernizr.js'></script>
-</head>
+  <body>
+    <app-root></app-root>
 
-<body>
+    <script type="text/javascript" src="./assets/js/newslatter.js"></script>
+    <script type="text/javascript" src="./assets/js/prettyphoto.js"></script>
+    <script
+      type="text/javascript"
+      src="./assets/js/owl.carousel.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./assets/js/jquery.flexslider.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./assets/js/flexslider-config.js"
+    ></script>
+    <script type="text/javascript" src="./assets/js/helper-plugins.js"></script>
+    <script type="text/javascript" src="./assets/js/bootstrap.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function () {
+        jQuery(".property-featured-image").each(function () {
+          PIheight = jQuery(this).find("img").outerHeight();
+          jQuery(this).prepend(
+            "<div class='overlay' style='line-height:" + PIheight + "px'></div>"
+          );
+        });
+        jQuery(".owl-carousel").each(function () {
+          var carouselInstance = jQuery(this);
+          (carouselColumns = carouselInstance.attr("data-columns")
+            ? carouselInstance.attr("data-columns")
+            : "1"),
+            (carouselitemsDesktop = carouselInstance.attr("data-items-desktop")
+              ? carouselInstance.attr("data-items-desktop")
+              : "4"),
+            (carouselitemsDesktopSmall = carouselInstance.attr(
+              "data-items-desktop-small"
+            )
+              ? carouselInstance.attr("data-items-desktop-small")
+              : "3"),
+            (carouselitemsTablet = carouselInstance.attr("data-items-tablet")
+              ? carouselInstance.attr("data-items-tablet")
+              : "2"),
+            (carouselitemsMobile = carouselInstance.attr("data-items-mobile")
+              ? carouselInstance.attr("data-items-mobile")
+              : "1"),
+            (carouselAutoplay =
+              carouselInstance.attr("data-autoplay") == "yes" ? true : false),
+            (carouselPagination =
+              carouselInstance.attr("data-pagination") == "yes" ? true : false),
+            (carouselArrows =
+              carouselInstance.attr("data-arrows") == "yes" ? true : false),
+            (carouselSingle =
+              carouselInstance.attr("data-single-item") == "yes"
+                ? true
+                : false);
+          (carouselStyle = carouselInstance.attr("data-style")
+            ? carouselInstance.attr("data-style")
+            : "fade"),
+            carouselInstance.owlCarousel({
+              items: carouselColumns,
+              autoPlay: carouselAutoplay,
+              navigation: carouselArrows,
+              pagination: carouselPagination,
+              itemsDesktop: [1199, carouselitemsDesktop],
+              itemsDesktopSmall: [979, carouselitemsDesktopSmall],
+              itemsTablet: [768, carouselitemsTablet],
+              itemsMobile: [479, carouselitemsMobile],
+              singleItem: carouselSingle,
+              navigationText: [
+                "<i class='fa fa-chevron-left'></i>",
+                "<i class='fa fa-chevron-right'></i>",
+              ],
+              stopOnHover: true,
+              lazyLoad: true,
+              transitionStyle: carouselStyle,
+            });
+        });
 
-  <app-root></app-root>
-
-
-  <script type='text/javascript' src='./assets/js/newslatter.js'></script>
-  <script type='text/javascript' src='./assets/js/prettyphoto.js'></script>
-  <script type='text/javascript' src='./assets/js/owl.carousel.min.js'></script>
-  <script type='text/javascript' src='./assets/js/jquery.flexslider.js'></script>
-  <script type='text/javascript' src='./assets/js/helper-plugins.js'></script>
-  <script type='text/javascript' src='./assets/js/bootstrap.js'></script>
-  <script type="text/javascript">
-    jQuery(document).ready(function () {
-      
-      jQuery(".property-featured-image").each(function () {
-        PIheight = jQuery(this).find("img").outerHeight();
-        jQuery(this).prepend("<div class='overlay' style='line-height:" + PIheight + "px'></div>");
-      });
-      jQuery('.owl-carousel').each(function () {
-        var carouselInstance = jQuery(this);
-        carouselColumns = carouselInstance.attr("data-columns") ? carouselInstance.attr("data-columns") : "1",
-          carouselitemsDesktop = carouselInstance.attr("data-items-desktop") ? carouselInstance.attr("data-items-desktop") : "4",
-          carouselitemsDesktopSmall = carouselInstance.attr("data-items-desktop-small") ? carouselInstance.attr("data-items-desktop-small") : "3",
-          carouselitemsTablet = carouselInstance.attr("data-items-tablet") ? carouselInstance.attr("data-items-tablet") : "2",
-          carouselitemsMobile = carouselInstance.attr("data-items-mobile") ? carouselInstance.attr("data-items-mobile") : "1",
-          carouselAutoplay = carouselInstance.attr("data-autoplay") == 'yes' ? true : false,
-          carouselPagination = carouselInstance.attr("data-pagination") == 'yes' ? true : false,
-          carouselArrows = carouselInstance.attr("data-arrows") == 'yes' ? true : false,
-          carouselSingle = carouselInstance.attr("data-single-item") == 'yes' ? true : false
-          carouselStyle = carouselInstance.attr("data-style") ? carouselInstance.attr("data-style") : "fade",
-
-          carouselInstance.owlCarousel({
-            items: carouselColumns,
-            autoPlay: carouselAutoplay,
-            navigation: carouselArrows,
-            pagination: carouselPagination,
-            itemsDesktop: [1199, carouselitemsDesktop],
-            itemsDesktopSmall: [979, carouselitemsDesktopSmall],
-            itemsTablet: [768, carouselitemsTablet],
-            itemsMobile: [479, carouselitemsMobile],
-            singleItem: carouselSingle,
-            navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
-            stopOnHover: true,
-            lazyLoad: true,
-            transitionStyle: carouselStyle
-          });
-      });
-      jQuery('.flexslider').each(function () {
-        var sliderInstance = jQuery(this);
-        sliderAutoplay = sliderInstance.attr("data-autoplay") == 'yes' ? true : false,
-          sliderPagination = sliderInstance.attr("data-pagination") == 'yes' ? true : false,
-          sliderArrows = sliderInstance.attr("data-arrows") == 'yes' ? true : false,
-          sliderDirection = sliderInstance.attr("data-direction") ? sliderInstance.attr("data-direction") : "horizontal",
-          sliderStyle = sliderInstance.attr("data-style") ? sliderInstance.attr("data-style") : "fade",
-          sliderSpeed = sliderInstance.attr("data-speed") ? sliderInstance.attr("data-speed") : "5000",
-          sliderPause = sliderInstance.attr("data-pause") == 'yes' ? true : false,
-
-          sliderInstance.flexslider({
-            animation: sliderStyle,
-            easing: "swing",
-            direction: sliderDirection,
-            slideshow: sliderAutoplay,
-            slideshowSpeed: sliderSpeed,
-            animationSpeed: 600,
-            initDelay: 0,
-            randomize: false,
-            pauseOnHover: sliderPause,
-            controlNav: sliderPagination,
-            directionNav: sliderArrows,
-            prevText: "",
-            nextText: "",
-            // start: function () { jQuery(".flex-caption").fadeIn(); }
-          });
-      });
-      
-        jQuery('#ads-trigger').click(function () {
-          if (jQuery(this).hasClass('advanced')) {
-            jQuery(this).removeClass('advanced');
+        jQuery("#ads-trigger").click(function () {
+          if (jQuery(this).hasClass("advanced")) {
+            jQuery(this).removeClass("advanced");
             jQuery(".site-search-module").animate({
-              'bottom': '-' + SBOFF
+              bottom: "-" + SBOFF,
             });
             jQuery(this).php('<i class="fa fa-plus"></i> Advanced');
-            jQuery('.slider-mask').fadeOut(500);
+            jQuery(".slider-mask").fadeOut(500);
           } else {
-
-            jQuery(this).addClass('advanced');
+            jQuery(this).addClass("advanced");
             jQuery(".site-search-module").animate({
-              'bottom': STOFF
+              bottom: STOFF,
             });
             jQuery(this).php('<i class="fa fa-minus"></i> Basic');
-            jQuery('.slider-mask').fadeIn(500);
+            jQuery(".slider-mask").fadeIn(500);
           }
           return false;
         });
-      
-
-    });
-  </script>
-
-
-
-
-  <script>
-
-
-    $(document).ready(function () {
-      $('.model_select li a').click(function (event) {
-        var option = $(event.target).text();
-        $(event.target).parents('.btn-group').find('.dropdown-toggle').php(option + ' <span class="caret"></span>');
       });
-    });
+    </script>
 
-
-    $(document).ready(function () {
-      $('.dropdown-menu li a').click(function (event) {
-        var option = $(event.target).text();
-        $(event.target).parents('.btn-group').find('.dropdown-toggle').php(option + ' <span class="caret"></span>');
+    <script>
+      $(document).ready(function () {
+        $(".model_select li a").click(function (event) {
+          var option = $(event.target).text();
+          $(event.target)
+            .parents(".btn-group")
+            .find(".dropdown-toggle")
+            .php(option + ' <span class="caret"></span>');
+        });
       });
-    });
 
-
-  </script>
-</body>
+      $(document).ready(function () {
+        $(".dropdown-menu li a").click(function (event) {
+          var option = $(event.target).text();
+          $(event.target)
+            .parents(".btn-group")
+            .find(".dropdown-toggle")
+            .php(option + ' <span class="caret"></span>');
+        });
+      });
+    </script>
+  </body>
 </html>
