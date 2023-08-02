@@ -1,8 +1,7 @@
 jQuery(document).ready(function () {
   jQuery(".flexslider").each(function () {
     var sliderInstance = jQuery(this);
-    console.log(sliderInstance);
-    (sliderAutoplay =
+      (sliderAutoplay =
       sliderInstance.attr("data-autoplay") == "yes" ? true : false),
       (sliderPagination =
         sliderInstance.attr("data-pagination") == "yes" ? true : false),

@@ -14,8 +14,7 @@ export class BannerComponent {
   ngOnInit() {
     this.router.events
       .pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd))
-      .subscribe((ev: NavigationEnd) => {
-        console.log('test');
+      .subscribe((ev: NavigationEnd) => {        
         $.getScript('assets/js/flexslider-config.js');
       });
   }
